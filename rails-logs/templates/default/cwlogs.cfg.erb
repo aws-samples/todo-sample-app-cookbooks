@@ -1,0 +1,22 @@
+[general]
+# Path to the AWSLogs agent's state file. Agent uses this file to maintain
+# client side state across its executions.
+state_file = /var/awslogs/state/agent-state
+
+[<%= node[:opsworks][:stack][:name] %>_rails]
+datetime_format = [%Y-%m-%d %H:%M:%S]
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_rails
+file = <%= node[:cwlogs][:railslogfile] %>
+log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
+
+[<%= node[:opsworks][:stack][:name] %>_unicorn_out]
+datetime_format = [%Y-%m-%d %H:%M:%S]
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_unicorn_out
+file = <%= node[:cwlogs][:unicornoutfile] %>
+log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
+
+[<%= node[:opsworks][:stack][:name] %>_unicorn_err]
+datetime_format = [%Y-%m-%d %H:%M:%S]
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_unicorn_err
+file = <%= node[:cwlogs][:unicornerrfile] %>
+log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
