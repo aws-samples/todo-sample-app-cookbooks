@@ -1,3 +1,3 @@
 default[:cwlogs][:railslogfile] = '/srv/www/todoapp/current/log/production.log'
-default[:cwlogs][:unicornoutfile] = '/srv/www/todoapp/current/log/unicorn.stdout.log'
-default[:cwlogs][:unicornerrfile] = '/srv/www/todoapp/current/log/unicorn.stderr.log'
+default[:cwlogs][:nginxaccessfile] = '/var/log/nginx/todoapp.access.log'
+default[:cwlogs][:agentlogfile] = '/var/log/aws/opsworks/opsworks-agent.log'

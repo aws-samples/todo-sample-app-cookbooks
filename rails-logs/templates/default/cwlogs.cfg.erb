@@ -9,14 +9,14 @@ log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_rails
 file = <%= node[:cwlogs][:railslogfile] %>
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 
-[<%= node[:opsworks][:stack][:name] %>_unicorn_out]
+[<%= node[:opsworks][:stack][:name] %>_nginx]
 datetime_format = [%Y-%m-%d %H:%M:%S]
-log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_unicorn_out
-file = <%= node[:cwlogs][:unicornoutfile] %>
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_nginx
+file = <%= node[:cwlogs][:nginxaccessfile] %>
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 
-[<%= node[:opsworks][:stack][:name] %>_unicorn_err]
+[<%= node[:opsworks][:stack][:name] %>_opsworks]
 datetime_format = [%Y-%m-%d %H:%M:%S]
-log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_unicorn_err
-file = <%= node[:cwlogs][:unicornerrfile] %>
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_opsworks
+file = <%= node[:cwlogs][:agentlogfile] %>
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
