@@ -10,7 +10,7 @@ file = <%= node[:cwlogs][:railslogfile] %>
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
 
 [<%= node[:opsworks][:stack][:name] %>_nginx]
-datetime_format = [%Y-%m-%d %H:%M:%S]
+datetime_format = [%d/%b/%Y:%H:%M:%S %z]
 log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ','_') %>_nginx
 file = <%= node[:cwlogs][:nginxaccessfile] %>
 log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
